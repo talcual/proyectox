@@ -4,6 +4,7 @@ interface Person {
     correo: string;
 }
 
+import User from '../models/user.model';
 export class personClass implements Person {
 
     private static personData: Person = {
@@ -20,7 +21,9 @@ export class personClass implements Person {
         res.send("¡Hola, TypeScript con Express!");
     }
 
-    static post(req:any, res:any){
-        res.json({"message" : "Hellow Hollow"});
+    static async post(req:any, res:any){
+        let Lui = await User.create({firstName: 'Luis' }) 
+
+        res.json({"message" : "Hellow ${Lui}"});
     }
 }

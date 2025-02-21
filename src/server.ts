@@ -1,9 +1,13 @@
 
-import express, { Request, Response } from 'express';
-import { setRoutes } from './helpers/routes.helper';
+import express from 'express';
 
+import { setRoutes } from './helpers/routes.helper';
 import { personClass } from './controllers/person.controller';
 import { ActivoClass } from './controllers/activos.controller';
+
+import setupdb from './models';
+
+setupdb();
 
 const app = express();
 const port = 3000;
