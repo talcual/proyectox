@@ -13,6 +13,7 @@ const setupdb = () => {
         console.log(" >> ", Event.name);
         console.log(" >> ", SettingEvent.name);
         console.log(" >> ", Asistente.name);
+        console.log(" ");
 
         User.hasMany(Event, { foreignKey: 'host_id' });
         Event.hasMany(SettingEvent, { foreignKey: 'id_event' });

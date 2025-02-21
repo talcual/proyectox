@@ -11,6 +11,7 @@ let password:string = process.env.PG_PASS ?? '';
 let host:string = process.env.PG_HOST ?? '';
 let port:any = process.env.PG_PORT ?? 5432;
 
+
 const sequelize = new Sequelize(database, user, password, {
     host: host,
     port: port,
