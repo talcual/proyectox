@@ -6,6 +6,7 @@ import sequelize from '../database/db';
 const Event = sequelize.define(
   'Event',
   {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     titulo: { type: DataTypes.STRING, allowNull: false, },
     description: {type: DataTypes.STRING,},
     type: {type: DataTypes.STRING, allowNull: false,},

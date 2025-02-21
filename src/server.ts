@@ -3,7 +3,7 @@ import express from 'express';
 
 import { setRoutes } from './helpers/routes.helper';
 import { personClass } from './controllers/person.controller';
-import { ActivoClass } from './controllers/activos.controller';
+import { EventoClass } from './controllers/events.controller';
 
 import setupdb from './models';
 
@@ -21,13 +21,13 @@ let routesPerson = setRoutes(router, [
 ]);
 
 
-let routesActivos = setRoutes(router, [
-    {'method': 'get', 'path': '/create', 'controller': ActivoClass.createActivo},
+let routesEventos = setRoutes(router, [
+    {'method': 'get', 'path': '/:id', 'controller': EventoClass.get},
 ])
 
 
 app.use('/person',routesPerson);
-app.use('/activo',routesActivos);
+app.use('/evento',routesEventos);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
