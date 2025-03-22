@@ -10,7 +10,7 @@ import setupdb from './models';
 setupdb();
 
 const app = express();
-const port = 3000;
+const port = 3030;
 
 // Single routing
 const router = express.Router();

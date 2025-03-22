@@ -22,7 +22,7 @@ export class personClass implements Person {
     }
 
     static async post(req:any, res:any){
-        let Lui = await User.create({firstName: 'Luis' }) 
+        let Lui = await User.create({nombre: 'Luis' }) 
 
         res.json({"message" : "Hellow ${Lui}"});
     }
