@@ -2,6 +2,9 @@
 import express from 'express';
 
 import { setRoutes } from './helpers/routes.helper';
+import { authMiddleware } from './middlewares/auth.middle';
+
+import { authClass } from './controllers/auth.controller';
 import { personClass } from './controllers/person.controller';
 import { EventoClass } from './controllers/events.controller';
 
@@ -16,8 +19,9 @@ const port = 3000;
 const router = express.Router();
 
 let routesPerson = setRoutes(router, [
-    {'method': 'get', 'path': '/get', 'controller': personClass.get},
-    {'method': 'post', 'path': '/create', 'controller': personClass.post}
+    {'method': 'post', 'path': '/login', 'controller': authClass.login, 'middleware': []},
+    {'method': 'get', 'path': '/get', 'controller': personClass.get, 'middleware': []},
+    {'method': 'post', 'path': '/create', 'controller': personClass.post, 'middleware': [authMiddleware]},
 ]);
 
 

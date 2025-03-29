@@ -4,8 +4,13 @@ export function setRoutes(Router:any, Routes:Array<any>) {
     const RouterStore:any = express.Router();
     
     Routes.map((route:any) => {
-        RouterStore[route.method](route.path, route.controller);
+        if(route.middleware){
+            RouterStore[route.method](route.path,route.middleware,route.controller);
+        }else{
+            RouterStore[route.method](route.path,route.controller);
+        }
     });
 
     return RouterStore;
 }
+
