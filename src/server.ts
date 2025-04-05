@@ -8,7 +8,10 @@ import { authClass } from './controllers/auth.controller';
 import { personClass } from './controllers/person.controller';
 import { EventoClass } from './controllers/events.controller';
 
+import mongoose from './database/nosql';
 import setupdb from './models';
+
+
 
 setupdb();
 
